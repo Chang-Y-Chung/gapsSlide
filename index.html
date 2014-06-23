@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Earnings Difference</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Earnings Difference">
+  <meta name="author" content="chang y. chung">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/codemargin.css"></link>
+<link rel=stylesheet href="./assets/css/condefont.css"></link>
+<link rel=stylesheet href="./assets/css/outmargin.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Earnings Difference</h1>
+    <h2>Course Project for Developing Data Products</h2>
+    <p>chang y. chung<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Too Much Ink</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Often, there are too much information to present.</li>
+<li>In terms of graphs, this will ends up: too many or too busy.</li>
+<li>A graph that is too busy (many lines or symbols) is described as &quot;Too much ink&quot;</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Interactive Graphs To Rescue</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Interactive graphs let users (readers) to modify some aspects of graphs interactively.</li>
+<li>This includes changing scales, getting more details of certain points, or picking-and-choosing some of points (lines, or symbols) that they are interested in.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="codefont codemargin outmargin" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Here is an example of a Too-Much-Ink</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">cohort &lt;- as.character(seq(1965, 2000, 5))
+plot(c(2.43, 4.39, 4.92, 6.72, 5.44, 2.94, 5.44, 2.53), type=&quot;b&quot;, ylim=c(-20,20), xlab=&quot;Cohort&quot;, ylab=&quot;% Diff&quot;, axes=FALSE, pch=1, lty=1)
+axis(1, at=1:length(cohort), labels=cohort)
+axis(2)
+lines(c(-1.59, 0, .3, 1.82, 0.4, -2.08, .2, -2.66), type=&quot;b&quot;, pch=2, lty=2)
+lines(c(-2.66, -.7, -9.43, -14.19, -3.37, -4.5, 1.82, -2.76), type=&quot;b&quot;, pch=3, lty=3)
+lines(c(-6.39, -4.88, -13.32, -18.21, -8.24, -9.06, -3.25, -7.96), type=&quot;b&quot;, pch=4, lty=4)
+lines(c(.4, -15.8, -10.86, -7.6, 2.53, 13.88, 15.37, 8.55), type=&quot;b&quot;, pch=5, lty=5)
+lines(c(-3.15, -19.1, -14.53, -11.57, -1.98, 8.87, 10.19, 3.67), type=&quot;b&quot;, pch=6, lty=6)
+legend(&quot;topleft&quot;, legend=c(&quot;English-speaking Caribbean vs. Native Blacks&quot;, &quot;English-speaking Caribbean vs. Native Black Movers&quot;, &quot;Latin American vs. Native Blacks&quot;, 
+&quot;Latine American vs. Native Black Movers&quot;, &quot;English-speaking African vs. Native Blacks&quot;, &quot;English-speaking Aftrican vs. Native Black Movers&quot;), pch=1:6, lty=1:6)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Re-draw as an Interactive Graph</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Previous line graphs into two bar graphs: three comparison groups on each graph, according to the baseline group (Native Black and Native Black Movers)</li>
+<li>Let readers (users) pick how many &quot;series&quot; of bars to show (can select from one to all three)</li>
+<li>Use well-chosen colors consistantly for the comparison groups.</li>
+<li>Remove redundant words and simplify the labels.</li>
+<li>Convert the graph into a simple app using shiny, and host it at shinyapps.io.</li>
+<li>See the result at <a href="https://chang-y-chung.shinyapps.io/gaps/">https://chang-y-chung.shinyapps.io/gaps/</a></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Too Much Ink'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Interactive Graphs To Rescue'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Here is an example of a Too-Much-Ink'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Re-draw as an Interactive Graph'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
